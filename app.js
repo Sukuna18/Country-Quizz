@@ -12,6 +12,7 @@ let notification = document.querySelector(".notification");
 let buttons;
 let correctButtonIndex;
 let score = 0;
+let tentative = 0;
 
 const image = document.querySelector(".image");
 async function getCountry(url) {
@@ -84,12 +85,12 @@ function selectCountry(button, data) {
       renderCountry(data);
     }
     scoreContain.innerHTML = score;
+    tentative++;
   });
 }
 function endQuiz() {
-  alert("Your score is " + score);
   let h1 = document.createElement("h1");
-  h1.innerHTML = "Votre score est de" + " " + score;
+  h1.innerHTML = "Votre score est de" + " " + score + " " + "sur" + " " + tentative + " " + "tentatives";
   divContainer.innerHTML = "";
   divContainer.appendChild(h1);
 }
